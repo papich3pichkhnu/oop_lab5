@@ -4,20 +4,20 @@
 #include <string>
 #include "Person.h"
 using namespace std;
-Person::Person() :Person("Last name", "First name", "Middle name") {
+Person::Person() : Person("Last name", "First name", "Middle name") {
 	
 }
 Person::~Person()
 {
 	cout << "Person \"" << this->getFullName() << "\" was destroyed" << endl;
 }
-Person::Person(string _lName, string _fName, string _mName) :Person(_lName, _fName,_mName,18,170,"Brown","Black")
+Person::Person(string _lName, string _fName, string _mName) : Person(_lName, _fName,_mName,18,170,"Brown","Black")
 {
 	
 }
-Person::Person(string _ln, string _fn, string _mn, int _a, int _h, string _coe, string _coh) :
-	Person(_ln,_fn,_mn)
+Person::Person(string _ln, string _fn, string _mn, int _a, int _h, string _coe, string _coh)
 {
+	setName(_ln, _fn, _mn);
 	setData(_a, _h); setEyesHair(_coe, _coh);
 	cout << "Person \"" << this->getFullName() << "\" was created" << endl;
 

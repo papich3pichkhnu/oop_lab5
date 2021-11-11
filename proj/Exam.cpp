@@ -5,7 +5,7 @@ Exam::~Exam()
 }
 
 Exam::Exam(Faculty* f, Department* d, Student* s, SeniorLecturer* l, Discipline* di) :
-	faculty(f), department(d), student(s), lecturer(l), discipline(di)
+	faculty(f), department(d), student(s), lecturer(l), discipline(di), mark(0)
 {
 	cout << "Added to studiyng course exam on faculty " << this->faculty->abbreviature <<
 		" on department " << this->department->name<<endl;

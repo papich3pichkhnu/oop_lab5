@@ -144,6 +144,7 @@
     <ClCompile Include="Discipline.cpp" />
     <ClCompile Include="Exam.cpp" />
     <ClCompile Include="Faculty.cpp" />
+    <ClCompile Include="GraduateStudent.cpp" />
     <ClCompile Include="Lecturer.cpp" />
     <ClCompile Include="Person.cpp" />
     <ClCompile Include="proj.cpp" />
@@ -156,6 +157,7 @@
     <ClInclude Include="Discipline.h" />
     <ClInclude Include="Exam.h" />
     <ClInclude Include="Faculty.h" />
+    <ClInclude Include="GraduateStudent.h" />
     <ClInclude Include="Lecturer.h" />
     <ClInclude Include="Person.h" />
     <ClInclude Include="SeniorLecturer.h" />

@@ -14,7 +14,7 @@ public:
 	Person(string, string, string);
 	Person();
 	Person(string, string, string , int, int , string , string);
-	~Person();
+	virtual ~Person();
 	string lastName;
 	string firstName;
 	string middleName;
@@ -28,5 +28,6 @@ public:
 	int getHeight();
 	string getColorOfEyes();
 	string getColorOfHair();
+	virtual void selfDescribe()=0;
 };
 

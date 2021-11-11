@@ -5,6 +5,7 @@
 #include "Lecturer.h"
 #include "SeniorLecturer.h"
 #include "AssociateProfessor.h"
+#include "GraduateStudent.h"
 #include "Exam.h"
 #include <time.h>
 using namespace std;
@@ -282,18 +283,18 @@ int main()
 
 #pragma endregion
 
-		
+
 	Faculty* FIT = new Faculty("Faculty of information techologies", "FIT", "Savenko O.S.", 2000, 5, 10, "tel", "email");
-	
+
 	Department* KIIS = new Department("KIIS");
 	Department* KN = new Department("KN");
 
 	FIT->addDepartment(KIIS);
 	FIT->addDepartment(KN);
 
-	Student* AVR = new Student("Avsiievych", "Volodymyr", "Ruslanovych", 18, 174, "Green", "Black");
-	Student* ARV = new Student("Avsiievych", "Ruslan", "Volodymyrovych", 18, 174, "Green", "Black");
-	
+	Student* AVR = new Student("Avsiievych", "Volodymyr", "Ruslanovych");
+	Student* ARV = new Student("Avsiievych", "Ruslan", "Volodymyrovych");
+
 	FIT->enrollStudent(AVR);
 	FIT->enrollStudent(ARV);
 
@@ -316,6 +317,32 @@ int main()
 	Exam* eOOP = new Exam(FIT, KIIS, ARV, LSM, OOP);
 	eOOP->takeExam("28.10.2021");
 	LSM->mentorCourseProject(AVR);
+
+	vector<Person*> people;
+	people.push_back(AVR);
+	people.push_back(ARV);
+	people.push_back(LSM);
+	people.push_back(POO);
+	people.push_back(DDO);
+	for (Person* p : people)
+	{
+		p->selfDescribe();
+	}
+	cout << "/****/" << endl;
+	Student* AVR_copy =dynamic_cast<Student*>(people[0]);
+	AVR_copy->showFaculty();
+	cout << "/****/" << endl << endl;
+	try {
+		FIT->deductStudent(AVR);
+		AVR->showFaculty();
+	}
+	catch (runtime_error ex)
+	{
+		cout << "/****/" << endl;
+		cout << ex.what() << endl;
+		cout << "/****/" << endl;
+	}
+
 	
 
 }

@@ -4,7 +4,7 @@
 #include <string>
 #include <time.h>
 
-Lecturer::Lecturer() :Lecturer("Last name", "First name", "Middle name") {}
+Lecturer::Lecturer() :Lecturer("Last name", "First name", "Middle name") { }
 Lecturer::~Lecturer()
 {
 	this->d = nullptr;	
@@ -15,6 +15,7 @@ Lecturer::Lecturer(string _lName, string _fName, string _mName) :Lecturer(_lName
 Lecturer::Lecturer(string _ln, string _fn, string _mn, int _a, int _h, string _coe, string _coh) :
 	Person(_ln, _fn, _mn, _a, _h, _coe, _coh),d(nullptr)
 {
+	
 	cout << "Lecturer \"" << this->getFullName() << "\" was created" << endl;
 	
 }
@@ -50,6 +51,10 @@ void Lecturer::printToFile()
 	out << this->firstName << endl;
 	out << this->middleName << endl;	
 	out.close();
+}
+void Lecturer::selfDescribe()
+{
+	cout << "I am lecturer " << this->getFullName()<<endl;
 }
 Lecturer Lecturer::readFromFile()
 {

@@ -3,13 +3,15 @@
 #include <fstream>
 #include <string>
 #include <time.h>
-
+using namespace std;
 Student::~Student()
 {
 	cout << "Student \"" << this->getFullName() << "\" was destroyed"<<endl;
 	this->sFaculty = nullptr;
 
 }
+Student::Student(string _lName, string _fName, string _mName) :Student(_lName, _fName, _mName, 30, 180, "Green", "Black") {}
+
 Student::Student(string _ln, string _fn, string _mn, int _a, int _h, string _coe, string _coh) :
 	Person(_ln,_fn,_mn,_a,_h,_coe,_coh),sFaculty(nullptr){
 
@@ -50,12 +52,13 @@ void Student::show()
 	cout << endl;
 }
 void Student::showFaculty() {
+	string s = "This student " + this->getFullName() + " isn't enrolled on any faculty";
 	if (this->sFaculty != NULL)
 	{
 		this->sFaculty->show();
-		
+
 	}
-	else cout << "None";
+	else throw runtime_error(s.c_str());
 }
 Student* Student::generate() {
 	srand(time(NULL));
@@ -88,7 +91,7 @@ Student Student::readFromFile()
 	return obj;
 }
 
-void Student::speak(Student* another)
+void Student::selfDescribe()
 {
-	cout << "Student " << this->getFullName() << " is speaking with student " << another->getFullName();
+	cout << "I am student " << this->getFullName() << endl;
 }
